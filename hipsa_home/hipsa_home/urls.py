@@ -5,6 +5,11 @@ from references import views as references_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # group meeting urls
     path('group_meeting/', group_meeting_views.home, name = 'home'),
+    
+    
+    # references urls
     path('references/', references_views.home, name = 'home'),
 ]
