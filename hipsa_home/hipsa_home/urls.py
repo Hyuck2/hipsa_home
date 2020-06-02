@@ -8,7 +8,8 @@ urlpatterns = [
 
     # group meeting urls
     path('group_meeting/', group_meeting_views.home, name = 'home'),
-    
+    path('group_meeting/', group_meeting_views.show_meetings, name = 'meetings'),
+    path('group_meeting/', group_meeting_views.show_users, name = 'users'),
     
     # references urls
     path('references/', references_views.home, name = 'home'),
