@@ -12,4 +12,6 @@ urlpatterns = [
     
     # references urls
     path('references/', references_views.home, name = 'home'),
+
+    # blog urls
 ]
