@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'group_meeting',
     'references',
+    'blog',
 ]
 
 MIDDLEWARE = [
