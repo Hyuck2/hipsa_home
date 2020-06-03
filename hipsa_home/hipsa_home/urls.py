@@ -3,7 +3,6 @@ from django.urls import path
 from group_meeting import views as group_meeting_views
 from references import views as references_views
 from blog import views as blog_views
-from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
