@@ -3,9 +3,11 @@ from django.urls import path
 from group_meeting import views as group_meeting_views
 from references import views as references_views
 from blog import views as blog_views
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('/', views.home, name = 'hipsa_home'),
 
     # group meeting urls
     path('group_meeting/', group_meeting_views.home, name = 'home'),
