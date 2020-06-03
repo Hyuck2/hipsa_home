@@ -7,7 +7,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name = 'hipsa_home'),
 
     # group meeting urls
     path('group_meeting/', group_meeting_views.home, name = 'home'),
