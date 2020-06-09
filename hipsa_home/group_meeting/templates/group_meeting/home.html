@@ -8,11 +8,31 @@
                 <h1>
                     <a href="">오늘 그룹 미팅</a>
                 </h1>
+                <p>
+                    회의 날짜 : {{today.date}}<br>
+                    회의 장소 : {{today.place}}<br>
+                    참석자    : {{today.attendent}}
+                </p>
+                <p>
+                    {% for topic in topics %}
+                        <p>
+                            {{topic}}<br>
+                        </p>
+                    {% endfor %}
+                </p>
             </div>
             <div>
                 <h1>
                     <a href="">지난 미팅 목록</a>
                 </h1>
+                {% for meeting in meetings %}
+                    <p>
+                        <a href="">{{meeting.date}}</a>/
+                        {{meeting.place}}/
+                        {{meeting.attendent}}/
+                        {{meeting.topics}}
+                    </p>
+                {% endfor %}
             </div>
             <div>
                 <h1>

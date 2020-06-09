@@ -1,26 +1,56 @@
 from django.shortcuts import render
-from .models import Meeting
+from .models import Meeting, Topic, Comment
 import pymysql
 
-class database:
-    def __init__(self, **info):
-        self.connection = pymysql.connect(user = info['user'], password = info['password'], host = info['host'])
-        self.cursor = self.connection.cursor()
-        self.cursor.execute('show databases')
-        db = str(info['db'])
-        databases = self.cursor.fetchall()
-
 def home(request):
-    params = ['165.194.123.14','hyuck2', 'hyuck2', '0625']
-    connection = database(user = params[2], password = params[3], host = params[0], db=params[1])
-    connection = connection.connection
-    cursor = connection.cursor()
-    cursor.execute("use hyuck2")
+    meetings = Meeting.objects.all()
+    today = Meeting.objects.latest('date')
+    topic_ids = today.topics.split(',')
+    topics = []
+    comments = []
+    for topic_id in topic_ids:
+        t_id = int(topic_id) + 1
+        selected_topic = Topic.objects.get(id = t_id)
+        #topics.append(selected_topic)
+        topics.append('안건 : ' + str(selected_topic.name))
+        topics.append('담당 : ' + str(selected_topic.owner))
+        topics.append('의견')
+        p_id = int(selected_topic.id)-1
+        comment = list(Comment.objects.filter(topic_id = p_id).order_by('id').values())
+        space = '--'
+        for c in comment:
+            print(c)
+            topics.append(space + str(c['description']) + ' - ' +str(c['owner_id']))
+            space = space + '--'
+    print(topics)
+
 
     return render(
         request,
         'group_meeting/home.html',
         {
-            
+            'meetings':meetings,
+            'today':today,
+            'topics':topics,
+            'comments':comments
         }
     )
+
+def get_meeting_list(request):
+    
+    return render(
+        request, 
+        'group_meeting/meeting_list.html',
+        {
+        }
+    )
+
+def get_meeting(request):
+    return render(
+        request,
+        'group_meeting/meeting.html',
+        {
+
+        }
+    )
+
