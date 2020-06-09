@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import meeting
 import pymysql
 
 class database:
@@ -19,34 +20,6 @@ def home(request):
     return render(
         request,
         'group_meeting/home.html',
-        {
-            
-        }
-    )
-
-def show_users(request):
-    return render(
-        request,
-        'group_meeting/users.html',
-        {
-            
-        }
-    )
-
-def config_users(request, user_id):
-    
-    return render(
-        request,
-        'group_meeting/config_users.html',
-        {
-            
-        }
-    )
-
-def show_meetings(request):
-    return render(
-        request,
-        'group_meeting/meetings.html',
         {
             
         }
