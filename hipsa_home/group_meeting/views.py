@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import meeting
+from .models import Meeting
 import pymysql
 
 class database:
