@@ -20,7 +20,7 @@ def home(request):
         space = '--'
         for c in comment:
             print(c)
-            topics.append(space + str(c['description']) + ' - ' +str(c['owner_id']))
+            topics.append(space + str(c['description']) + ' - ' +str(int(c['owner_id'])-1))
             space = space + '--'
     print(topics)
 
