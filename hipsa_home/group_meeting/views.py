@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Meeting, Topic, Comment
+from .models import Meeting, Topic, Comment, Category
 import pymysql
 
 def home(request):
