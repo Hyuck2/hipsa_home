@@ -2,6 +2,9 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+
 class Meeting(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date = models.CharField(max_length=200)
@@ -26,6 +29,3 @@ class Comment(models.Model):
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
-
-class Category(models.Model):
-    name = models.CharField(max_length=200)
