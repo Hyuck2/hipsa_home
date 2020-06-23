@@ -22,3 +22,9 @@ hipsa_home/group_meeting/migrations/__pycache__/0001_initial.cpython-36.pyc
 hipsa_home/hipsa_home/__pycache__/__init__.cpython-36.pyc
 hipsa_home/hipsa_home/__pycache__/settings.cpython-36.pyc
 hipsa_home/hipsa_home/__pycache__/urls.cpython-36.pyc
+hipsa_home/blog/migrations/__pycache__/0001_initial.cpython-36.pyc
+hipsa_home/group_meeting/migrations/__pycache__/0002_auto_20200623_0549.cpython-36.pyc
+hipsa_home/group_meeting/migrations/__pycache__/0002_auto_20200623_1326.cpython-36.pyc
+hipsa_home/group_meeting/migrations/__pycache__/0003_auto_20200623_0552.cpython-36.pyc
+hipsa_home/group_meeting/migrations/__pycache__/0003_auto_20200624_0006.cpython-36.pyc
+hipsa_home/group_meeting/migrations/__pycache__/0004_auto_20200624_0010.cpython-36.pyc
