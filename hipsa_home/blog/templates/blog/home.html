@@ -1,3 +1,19 @@
 <html>
-    This is home
+    <title>
+        Posts
+    </title>
+    <head>
+        
+        <body>
+            {% for post in posts %}
+                <div>
+                    <h1><a href="">{{post.title}}</a></h1>
+                    <p> Author: {{post.author}}</p>
+                    <p> Last updated: {{post.updated}}</p>
+                    <p> Published: {{post.created}}</p>
+                    <p>{{post.text|linebreaksbr|truncatewords:30}}</p>
+                </div>
+            {% endfor %}
+        </body>
+    </head>>
 </html>
