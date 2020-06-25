@@ -28,10 +28,12 @@ def meeting_list(request):
 def list_detail(request, meeting_id):
     print("================================================================")
     meeting = Meeting.objects.get(id=meeting_id)
+    comments = Comment.objects.all()
     return render(
         request,
         'group_meeting/list_detail.html', 
         {
-            'meeting':meeting
+            'meeting':meeting,
+            'comments':comments,
         }
     )

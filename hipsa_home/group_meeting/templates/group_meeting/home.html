@@ -32,7 +32,7 @@
                         <p>
                             {% for comment in comments %}
                             {% if comment.topic == t %}
-                                {{comment.description}} : {{comment.author}}<br>
+                                {{comment.description}}({{comment.author}})<br>
                             {% endif%}
                         {% endfor %}
                         </p>
