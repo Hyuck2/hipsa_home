@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from .models import Meeting, Topic, Comment, Category
 from django.http import HttpResponse
+from datetime import timedelta
 
 def home(request):
     today = Meeting.objects.order_by('-date')[0]
-    comments = Comment.objects.all()
+    #comments = Comment.objects.all()
+    comments = Comment.objects.filter(updated__range=(today.date-timedelta(days=7),today.date))
     return render(
         request,
         'group_meeting/home.html',
