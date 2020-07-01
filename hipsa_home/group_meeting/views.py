@@ -6,7 +6,7 @@ from datetime import timedelta
 def home(request):
     today = Meeting.objects.order_by('-date')[0]
     #comments = Comment.objects.all()
-    comments = Comment.objects.filter(updated__range=(today.date-timedelta(days=1),today.date+timedelta(days=1)))
+    comments = Comment.objects.filter(updated__range=(today.date-timedelta(days=7),today.date+timedelta(days=1)))
     return render(
         request,
         'group_meeting/home.html',
