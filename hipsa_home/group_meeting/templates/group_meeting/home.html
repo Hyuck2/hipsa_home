@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="{% static 'css/group_meeting.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -24,18 +25,20 @@
                     {% endfor %}<br>
                 안건
                     {%for t in today.topic.all %}
-                        <li>{{t}} : 
+                        <div class="topic">
+                            {{t}} : 
                             {% for owner in t.owner.all%}
                                 {{owner}}
                             {% endfor %}
-                        </li>
-                        <p>
+                        
                             {% for comment in comments %}
-                            {% if comment.topic == t %}
-                                {{comment.description}}({{comment.author}})<br>
-                            {% endif%}
-                        {% endfor %}
-                        </p>
+                                <div class = "comment">
+                                    {% if comment.topic == t %}
+                                        {{comment.description}}({{comment.author}})<br>
+                                    {% endif%}
+                                </div>
+                            {% endfor %}                   
+                        </div>
                     {% endfor %}
             </p>
             <p>
@@ -46,5 +49,8 @@
                 <a href="{% url 'list'%}">목록</a>
             </h2>
         </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </body>
 </html>
