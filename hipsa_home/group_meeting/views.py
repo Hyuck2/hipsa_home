@@ -5,7 +5,6 @@ from datetime import timedelta
 
 def home(request):
     today = Meeting.objects.order_by('-date')[0]
-    #comments = Comment.objects.all()
     comments = Comment.objects.filter(updated__range=(today.date-timedelta(days=7),today.date+timedelta(days=1)))
     return render(
         request,
@@ -18,7 +17,6 @@ def home(request):
 
 def meeting_list(request):
     meetings = Meeting.objects.order_by('date')
-    
     return render(
         request, 
         'group_meeting/list.html',
@@ -28,9 +26,8 @@ def meeting_list(request):
     )
 
 def list_detail(request, meeting_id):
-    print("================================================================")
     meeting = Meeting.objects.get(id=meeting_id)
-    comments = Comment.objects.all()
+    comments = Comment.objects.filter(updated__range=(meeting.date-timedelta(days=7),meeting.date+timedelta(days=1)))    
     return render(
         request,
         'group_meeting/list_detail.html', 

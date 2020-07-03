@@ -4,36 +4,33 @@
     <head>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" href="{% static 'css/group_meeting.css' %}">
     </head>
 
     <body>
+        <div class="page-header">
+            <h1>고성능시스템구조연구실 그룹미팅</h1>    
+        </div>
         <div>
-            <p>
-                회의 날짜 : {{meeting.date}}<br>
-                회의 장소 : {{meeting.place}}<br>
-                참석자    : 
-                    {%for a in meeting.attendent.all %}
-                        {{a}}
-                    {% endfor %}<br>
-                안건
-                    {%for t in meeting.topic.all %}
-                        <li>{{t}} : 
-                            {% for owner in t.owner.all%}
-                            {{owner}}
-                            {% endfor %}
-                        </li>
-                        <p>
+            회의 날짜 : {{meeting.date}}<br>
+            회의 장소 : {{meeting.place}}<br>
+            참석자    : {%for a in meeting.attendent.all %}{{a}} {% endfor %}<br>
+            안건
+                {%for t in meeting.topic.all %}
+                <div class = 'topic'>
+                    {{t}} : 
+                            {% for owner in t.owner.all%}{{owner}} {% endfor %}
                             {% for comment in comments %}
-                            {% if comment.topic == t %}
+                            <div class = 'comment'>
+                                {% if comment.topic == t %}
+                            
                                 {{comment.description}} : {{comment.author}}<br>
+                        
                             {% endif%}
+                            </div>
                         {% endfor %}
-                        </p>
-                    {% endfor %}
-            </p>
-            <p>
-            </p>
+                </div>
+                {% endfor %}
         </div>
     </body>
 </html>
